@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Gamer Hub</title>
+<!-- Anuncio -->
+<script async src="https://adsbygoogle.com/ads.js"></script>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background: radial-gradient(circle at top, #020617, #000);
+    color:white;
+}
+header{
+    text-align:center;
+    padding:20px;
+    font-size:32px;
+    font-weight:bold;
+    color:#38bdf8;
+    text-shadow:0 0 10px #38bdf8;
+}
+nav{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding:15px;
+    background:#020617;
+    box-shadow:0 0 10px #38bdf8;
+}
+nav a{
+    cursor:pointer;
+    font-weight:bold;
+}
+nav a:hover{
+    color:#38bdf8;
+    text-shadow:0 0 10px #38bdf8;
+}
+section{ display:none; padding:20px; max-width:900px; margin:auto;}
+.active{ display:block;}
+.card{
+    background:rgba(2,6,23,0.9);
+    padding:20px;
+    margin:15px 0;
+    border-radius:12px;
+    border:1px solid #38bdf8;
+    box-shadow:0 0 15px rgba(56,189,248,.4);
+}
+button{
+    background:#38bdf8;
+    border:none;
+    padding:10px 15px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+button:hover{
+    background:#0ea5e9;
+}
+input, textarea{
+    width:100%;
+    padding:8px;
+    margin:5px 0;
+}
+img{ width:100%; border-radius:10px; margin-top:10px;}
+</style>
+</head>
+<body>
+
+<header>🎮 Elite Gamer Hub</header>
+
+<nav>
+<a onclick="show('inicio')">Inicio</a>
+<a onclick="show('herramientas')">Herramientas</a>
+<a onclick="show('fondos')">Fondos</a>
+<a onclick="show('noticias')">Noticias</a>
+<a onclick="show('admin')">Admin</a>
+</nav>
+
+<!-- INICIO -->
+<section id="inicio" class="active">
+<div class="card">
+<h2>🔥 Bienvenido Gamer</h2>
+<p id="saludo"></p>
+</div>
+</section>
+
+<!-- HERRAMIENTAS -->
+<section id="herramientas">
+<div class="card">
+<h2>🎯 Generador de Sensibilidad</h2>
+<input type="number" id="dpi" placeholder="Ingresa tu DPI">
+<button onclick="generar()">Generar</button>
+<p id="sens"></p>
+</div>
+
+<div class="card">
+<h2>🎮 Generador de Nombre Gamer</h2>
+<button onclick="nombreGamer()">Generar</button>
+<p id="nombre"></p>
+</div>
+</section>
+
+<!-- FONDOS -->
+<section id="fondos">
+<div class="card">
+<h2>🖼️ Fondos Gamer</h2>
+<div id="listaFondos"></div>
+</div>
+</section>
+
+<!-- NOTICIAS -->
+<section id="noticias">
+<div class="card">
+<h2>📰 Noticias Gamer</h2>
+<ul id="listaNoticias"></ul>
+</div>
+</section>
+
+<!-- ADMIN -->
+<section id="admin">
+<div class="card">
+<h2>🔐 Panel Administrador</h2>
+
+<input type="text" id="user" placeholder="Usuario">
+<input type="password" id="pass" placeholder="Clave">
+<button onclick="login()">Ingresar</button>
+
+<div id="panel" style="display:none;">
+<h3>Agregar Noticia</h3>
+<textarea id="nuevaNoticia"></textarea>
+<button onclick="guardarNoticia()">Guardar</button>
+
+<h3>Agregar Fondo (URL imagen)</h3>
+<input id="nuevoFondo" placeholder="URL imagen">
+<button onclick="guardarFondo()">Guardar</button>
+</div>
+
+</div>
+</section>
+
+<script>
+// saludo dinámico
+let hora=new Date().getHours();
+saludo.innerHTML = hora<12 ? "Buenos días, listo para subir de rango 🚀"
+                          : "Buenas tardes, hora de ganar partidas 🔥";
+
+// navegación
+function show(id){
+    document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+// herramientas
+function generar(){
+    let dpi=document.getElementById("dpi").value;
+    if(!dpi){ sens.innerHTML="Ingresa un DPI"; return; }
+    let g=Math.min(100, Math.floor(dpi/4));
+    sens.innerHTML=`General: ${g} | Punto rojo: ${g-5}`;
+}
+
+function nombreGamer(){
+    let nombres=["Shadow","Ghost","Dragon","Sniper","Blaze","Venom","Hunter"];
+    let num=Math.floor(Math.random()*100);
+    nombre.innerHTML=nombres[Math.floor(Math.random()*nombres.length)]+num;
+}
+
+// ADMIN LOGIN
+function login(){
+    if(user.value==="admin" && pass.value==="1234"){
+        panel.style.display="block";
+        alert("Bienvenido Admin");
+    }else{
+        alert("Datos incorrectos");
+    }
+}
+
+// guardar noticia manual
+function guardarNoticia(){
+    let noticias=JSON.parse(localStorage.getItem("noticias"))||[];
+    noticias.push(nuevaNoticia.value);
+    localStorage.setItem("noticias", JSON.stringify(noticias));
+    cargarNoticias();
+}
+
+// cargar noticias manuales
+function cargarNoticias(){
+    let noticias=JSON.parse(localStorage.getItem("noticias"))||[];
+    noticias.forEach(n=>{
+        let li=document.createElement("li");
+        li.textContent=n;
+        listaNoticias.appendChild(li);
+    });
+}
+
+// NOTICIAS AUTOMÁTICAS
+async function noticiasAutomaticas(){
+    try {
+        let res = await fetch("https://api.allorigins.win/raw?url=https://www.levelup.com/rss");
+        let data = await res.text();
+        let parser = new DOMParser();
+        let xml = parser.parseFromString(data, "text/xml");
+        let items = xml.querySelectorAll("item");
+
+        listaNoticias.innerHTML = "";
+
+        items.forEach((item, i) => {
+            if (i < 5) {
+                let li = document.createElement("li");
+                li.textContent = item.querySelector("title").textContent;
+                listaNoticias.appendChild(li);
+            }
+        });
+
+    } catch {
+        listaNoticias.innerHTML = "<li>No se pudieron cargar noticias</li>";
+    }
+}
+
+// FONDOS
+function guardarFondo(){
+    let fondos=JSON.parse(localStorage.getItem("fondos"))||[];
+    fondos.push(nuevoFondo.value);
+    localStorage.setItem("fondos", JSON.stringify(fondos));
+    cargarFondos();
+}
+
+function cargarFondos(){
+    let fondos=JSON.parse(localStorage.getItem("fondos"))||[
+        "https://picsum.photos/400/200?1"
+    ];
+    listaFondos.innerHTML="";
+    fondos.forEach(f=>{
+        let img=document.createElement("img");
+        img.src=f;
+        listaFondos.appendChild(img);
+    });
+}
+
+// ejecutar al iniciar
+cargarFondos();
+noticiasAutomaticas();
+</script>
+
+</body>
+</html>
