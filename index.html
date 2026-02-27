@@ -1,332 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Gamer Hub</title>
-     <h2>Zona de anuncios</h2>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elite Gamer Hub | Noticias, Guías y Herramientas Gamer</title>
+  <meta name="description" content="Noticias, guías, fondos y herramientas para gamers. Aprende, mejora y mantente actualizado en el mundo gaming.">
 
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-XXXXXXXX"
-     data-ad-slot="1234567890"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-     <!-- Anuncio -->
-<script async src="https://adsbygoogle.com/ads.js"></script>
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1501293096658665"
+  <!-- 🔹 Código de verificación AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1501293096658665"
      crossorigin="anonymous"></script>
 
-<style>
-body{
-    margin:0;
-    font-family:'Segoe UI',sans-serif;
-    background: radial-gradient(circle at top, #020617, #000);
-    color:white;
-}
-header{
-    text-align:center;
-    padding:20px;
-    font-size:32px;
-    font-weight:bold;
-    color:#38bdf8;
-    text-shadow:0 0 10px #38bdf8;
-}
-nav{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    padding:15px;
-    background:#020617;
-    box-shadow:0 0 10px #38bdf8;
-}
-nav a{
-    cursor:pointer;
-    font-weight:bold;
-}
-nav a:hover{
-    color:#38bdf8;
-    text-shadow:0 0 10px #38bdf8;
-}
-section{ display:none; padding:20px; max-width:900px; margin:auto;}
-.active{ display:block;}
-.card{
-    background:rgba(2,6,23,0.9);
-    padding:20px;
-    margin:15px 0;
-    border-radius:12px;
-    border:1px solid #38bdf8;
-    box-shadow:0 0 15px rgba(56,189,248,.4);
-}
-button{
-    background:#38bdf8;
-    border:none;
-    padding:10px 15px;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-}
-button:hover{
-    background:#0ea5e9;
-}
-input, textarea{
-    width:100%;
-    padding:8px;
-    margin:5px 0;
-}
-img{ width:100%; border-radius:10px; margin-top:10px;}
-</style>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #0f172a;
+      color: white;
+    }
+    header {
+      background: #020617;
+      padding: 20px;
+      text-align: center;
+    }
+    nav a {
+      margin: 10px;
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 20px;
+    }
+    .card {
+      background: #020617;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+    }
+    footer {
+      background: #020617;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
 </head>
+
 <body>
 
-<header>🎮 Elite Gamer Hub</header>
+<header>
+  <h1>🎮 Elite Gamer Hub</h1>
+  <p>Tu centro de noticias, guías y herramientas gamer</p>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#noticias">Noticias</a>
+    <a href="#guias">Guías</a>
+    <a href="#herramientas">Herramientas</a>
+    <a href="#privacidad">Privacidad</a>
+  </nav>
+</header>
 
-<nav>
-<a onclick="show('inicio')">Inicio</a>
-<a onclick="show('herramientas')">Herramientas</a>
-<a onclick="show('fondos')">Fondos</a>
-<a onclick="show('noticias')">Noticias</a>
-<a onclick="show('admin')">Admin</a>
-</nav>
-
-<!-- INICIO -->
-<section id="inicio" class="active">
-<div class="card">
-<h2>🔥 Bienvenido Gamer</h2>
-<p id="saludo"></p>
-</div>
-     <h2>Zona de anuncios</h2>
-
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-XXXXXXXX"
-     data-ad-slot="1234567890"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<section id="inicio">
+  <h2>Bienvenido</h2>
+  <p>Elite Gamer Hub es un espacio creado para gamers que buscan mejorar su rendimiento, estar informados y acceder a recursos útiles.</p>
 </section>
 
-<!-- HERRAMIENTAS -->
-<section id="herramientas">
-<div class="card">
-<h2>🎯 Generador de Sensibilidad</h2>
-<input type="number" id="dpi" placeholder="Ingresa tu DPI">
-<button onclick="generar()">Generar</button>
-<p id="sens"></p>
-</div>
-
-<div class="card">
-<h2>🎮 Generador de Nombre Gamer</h2>
-<button onclick="nombreGamer()">Generar</button>
-<p id="nombre"></p>
-</div>
-     <h2>Zona de anuncios</h2>
-
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-XXXXXXXX"
-     data-ad-slot="1234567890"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<!-- 🔹 ESPACIO PARA ANUNCIO -->
+<section>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXX"
+       data-ad-slot="1234567890"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
 </section>
 
-<!-- FONDOS -->
-<section id="fondos">
-<div class="card">
-<h2>🖼️ Fondos Gamer</h2>
-<div id="listaFondos"></div>
-</div>
-     <h2>Zona de anuncios</h2>
-
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-XXXXXXXX"
-     data-ad-slot="1234567890"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</section>
-
-<!-- NOTICIAS -->
 <section id="noticias">
-<div class="card">
-<h2>📰 Noticias Gamer</h2>
-<ul id="listaNoticias"></ul>
-</div>
-     <h2>Zona de anuncios</h2>
-
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-XXXXXXXX"
-     data-ad-slot="1234567890"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+  <h2>Noticias Gaming</h2>
+  <div class="card">
+    <h3>Nuevas actualizaciones en juegos populares</h3>
+    <p>Los desarrolladores siguen lanzando contenido nuevo para mejorar la experiencia de los jugadores en 2026.</p>
+  </div>
 </section>
 
-<!-- ADMIN -->
-<section id="admin">
-<div class="card">
-<h2>🔐 Panel Administrador</h2>
-
-<input type="text" id="user" placeholder="Usuario">
-<input type="password" id="pass" placeholder="Clave">
-<button onclick="login()">Ingresar</button>
-
-<div id="panel" style="display:none;">
-<h3>Agregar Noticia</h3>
-<textarea id="nuevaNoticia"></textarea>
-<button onclick="guardarNoticia()">Guardar</button>
-
-<h3>Agregar Fondo (URL imagen)</h3>
-<input id="nuevoFondo" placeholder="URL imagen">
-<button onclick="guardarFondo()">Guardar</button>
-</div>
-
-</div>
+<section id="guias">
+  <h2>Guías</h2>
+  <div class="card">
+    <h3>Cómo mejorar tu puntería</h3>
+    <p>Practica con sensibilidad adecuada, usa audífonos y entrena diariamente para mejores resultados.</p>
+  </div>
 </section>
 
-<script>
-// saludo dinámico
-let hora=new Date().getHours();
-saludo.innerHTML = hora<12 ? "Buenos días, listo para subir de rango 🚀"
-                          : "Buenas tardes, hora de ganar partidas 🔥";
+<section id="herramientas">
+  <h2>Herramientas Gamer</h2>
+  <div class="card">
+    <h3>Calculadora de sensibilidad</h3>
+    <p>Próximamente podrás ajustar tu sensibilidad según tu dispositivo.</p>
+  </div>
+</section>
 
-// navegación
-function show(id){
-    document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-}
+<section id="privacidad">
+  <h2>Política de Privacidad</h2>
+  <p>Este sitio puede utilizar cookies y servicios de terceros como Google AdSense para mostrar anuncios relevantes.</p>
+  <p>No recopilamos información personal sin el consentimiento del usuario.</p>
+</section>
 
-// herramientas
-function generar(){
-    let dpi=document.getElementById("dpi").value;
-    if(!dpi){ sens.innerHTML="Ingresa un DPI"; return; }
-    let g=Math.min(100, Math.floor(dpi/4));
-    sens.innerHTML=`General: ${g} | Punto rojo: ${g-5}`;
-}
-
-function nombreGamer(){
-    let nombres=["Shadow","Ghost","Dragon","Sniper","Blaze","Venom","Hunter"];
-    let num=Math.floor(Math.random()*100);
-    nombre.innerHTML=nombres[Math.floor(Math.random()*nombres.length)]+num;
-}
-
-// ADMIN LOGIN
-function login(){
-    if(user.value==="admin" && pass.value==="1234"){
-        panel.style.display="block";
-        alert("Bienvenido Admin");
-    }else{
-        alert("Datos incorrectos");
-    }
-}
-
-// guardar noticia manual
-function guardarNoticia(){
-    let noticias=JSON.parse(localStorage.getItem("noticias"))||[];
-    noticias.push(nuevaNoticia.value);
-    localStorage.setItem("noticias", JSON.stringify(noticias));
-    cargarNoticias();
-}
-
-// cargar noticias manuales
-function cargarNoticias(){
-    let noticias=JSON.parse(localStorage.getItem("noticias"))||[];
-    noticias.forEach(n=>{
-        let li=document.createElement("li");
-        li.textContent=n;
-        listaNoticias.appendChild(li);
-    });
-}
-
-// NOTICIAS AUTOMÁTICAS
-async function noticiasAutomaticas(){
-    try {
-        let res = await fetch("https://api.allorigins.win/raw?url=https://www.levelup.com/rss");
-        let data = await res.text();
-        let parser = new DOMParser();
-        let xml = parser.parseFromString(data, "text/xml");
-        let items = xml.querySelectorAll("item");
-
-        listaNoticias.innerHTML = "";
-
-        items.forEach((item, i) => {
-            if (i < 5) {
-                let li = document.createElement("li");
-                li.textContent = item.querySelector("title").textContent;
-                listaNoticias.appendChild(li);
-            }
-        });
-
-    } catch {
-        listaNoticias.innerHTML = "<li>No se pudieron cargar noticias</li>";
-    }
-}
-
-// FONDOS
-function guardarFondo(){
-    let fondos=JSON.parse(localStorage.getItem("fondos"))||[];
-    fondos.push(nuevoFondo.value);
-    localStorage.setItem("fondos", JSON.stringify(fondos));
-    cargarFondos();
-}
-
-function cargarFondos(){
-    let fondos=JSON.parse(localStorage.getItem("fondos"))||[
-        "https://picsum.photos/400/200?1"
-    ];
-    listaFondos.innerHTML="";
-    fondos.forEach(f=>{
-        let img=document.createElement("img");
-        img.src=f;
-        listaFondos.appendChild(img);
-    });
-}
-
-// ejecutar al iniciar
-cargarFondos();
-noticiasAutomaticas();
-</script>
-<h2>Zona de anuncios</h2>
-
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-XXXXXXXX"
-     data-ad-slot="1234567890"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+<footer>
+  <p>© 2026 Elite Gamer Hub | Sitio informativo para la comunidad gamer</p>
+</footer>
 
 <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
+  (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+
 </body>
-      <h2>Zona de anuncios</h2>
-
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-XXXXXXXX"
-     data-ad-slot="1234567890"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-
 </html>
 
 
